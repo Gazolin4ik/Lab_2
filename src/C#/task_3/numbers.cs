@@ -27,15 +27,17 @@ class Program
 
     static void Main()
     {
-        Console.WriteLine("Введите числа через пробел:");
-        var numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+        Console.WriteLine("Введите количество чисел и числа через пробел:");
+        var input = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+
+        int count = input[0];  // Первое число - это количество последующих чисел
 
         Console.Write("Выход: ");
-        for (int i = 0; i < numbers.Length; i++)
+        for (int i = 1; i <= count; i++)  // Начинаем с 1, так как нулевой элемент - это count
         {
-            if (SumOfDigits(numbers[i]) < ProductOfDigits(numbers[i]))
+            if (SumOfDigits(input[i]) < ProductOfDigits(input[i]))
             {
-                Console.Write(i + " ");
+                Console.Write((i) + " ");  // Выводим индекс числа, уменьшенный на 1
             }
         }
     }

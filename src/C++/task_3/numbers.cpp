@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 // Функция для вычисления суммы цифр числа
@@ -23,18 +22,16 @@ int productOfDigits(int n) {
 }
 
 int main() {
-    vector<int> numbers; // Вектор для хранения чисел
-    int number;
+    int count, number;
     
-    // Считывание чисел до тех пор, пока не будет введен ноль или другой ограничитель
-    while (cin >> number && number != 0) {
-        numbers.push_back(number);
-    }
+    // Считываем количество чисел
+    cin >> count;
 
-    // Обход всех чисел и проверка условия задачи
-    for (int i = 0; i < numbers.size(); ++i) {
-        if (sumOfDigits(numbers[i]) < productOfDigits(numbers[i])) {
-            cout << (i) << " "; // Выводим номера удовлетворяющих чисел
+    // Обрабатываем каждое число сразу после ввода
+    for (int i = 0; i < count; ++i) {
+        cin >> number;
+        if (sumOfDigits(number) < productOfDigits(number)) {
+            cout << i + 1 << " "; // Выводим номер числа, если оно удовлетворяет условиям
         }
     }
 
